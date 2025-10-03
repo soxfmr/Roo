@@ -1,0 +1,20 @@
+{
+  "name": "roo-subscriptions-tracker",
+  "version": "1.0.0",
+  "description": "A Vue.js subscription tracker application",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "apexcharts": "^5.3.5",
+    "vue": "^3.5.22",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "vite": "^5.0.0"
+  }
+}
