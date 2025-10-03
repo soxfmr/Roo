@@ -11,6 +11,9 @@ def init_db(app):
     migrate.init_app(app, db)
     # Dev convenience: auto create tables if not present
     with app.app_context():
+        # Import models before create_all so metadata is populated
+        from . import models  # noqa: F401
+
         try:
             db.create_all()
         except Exception:
