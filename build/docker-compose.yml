@@ -7,6 +7,10 @@ services:
     environment:
       - DATABASE_URL=${DATABASE_URL:-sqlite:////data/app.db}
       - SECRET_KEY=${SECRET_KEY:-change-me}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - ./.env
     volumes:
       - ${DB_LOCAL_DIR:-../data}:/data
     ports:

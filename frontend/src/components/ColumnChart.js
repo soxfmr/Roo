@@ -75,18 +75,19 @@ export default {
     return { animated, maxValue, symbol };
   },
   template: `
-    <div class="w-full">
-      <div class="h-48 flex items-end gap-3">
+    <div class="w-full overflow-x-auto">
+      <div class="h-48 flex items-end gap-3" :style="{ minWidth: items.length > 6 ? (items.length * 80) + 'px' : '100%' }">
         <div
           v-for="item in items"
           :key="item[labelKey]"
-          class="flex-1 flex flex-col items-center h-full"
+          class="flex flex-col items-center h-full"
+          :style="{ flex: items.length <= 6 ? '1 1 0%' : '0 0 auto', minWidth: items.length > 6 ? '72px' : 'auto', width: items.length > 6 ? '72px' : 'auto' }"
         >
           <div class="relative w-full flex-1 flex items-end h-full">
             <div class="w-full rounded-t-lg" :style="{ height: (Math.max(animated[item[labelKey]] || 0, 0) / maxValue) * 100 + '%', background: item[colorKey] || '#94a3b8' }"></div>
           </div>
-          <div class="mt-2 text-xs text-center text-gray-500 truncate w-full">{{ item[labelKey] }}</div>
-          <div class="text-xs text-gray-700">{{ symbol }}{{ (animated[item[labelKey]] || 0).toFixed(2) }}</div>
+          <div class="mt-2 text-xs text-center text-gray-500 truncate w-full px-1">{{ item[labelKey] }}</div>
+          <div class="text-xs text-gray-700 whitespace-nowrap">{{ symbol }}{{ (animated[item[labelKey]] || 0).toFixed(2) }}</div>
         </div>
       </div>
     </div>

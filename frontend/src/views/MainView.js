@@ -263,9 +263,9 @@ export default {
     };
   },
   template: `
-    <div class="h-full pb-16 bg-white">
+    <div class="h-full bg-white">
       <MainHeader :title="title" :categories="st.categories" :currentCategoryId="st.currentCategoryId" :onSettings="navigateSettings" :onAdd="navigateAdd" :onSelectCategory="selectCategory" :onAddCategory="openCategoryModal" :onRemoveCategory="removeCategory" :hidden="!showChrome"/>
-      <div class="pt-16 pb-16 overflow-y-auto" @scroll="onScroll" style="height: calc(100% - 4rem)">
+      <div class="h-full pt-16 pb-16 overflow-y-auto" @scroll="onScroll">
         <div class="p-5 space-y-5">
           <SubscriptionItem
             v-for="s in st.subscriptions"
